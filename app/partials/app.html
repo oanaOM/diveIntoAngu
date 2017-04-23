@@ -1,0 +1,30 @@
+<h1>Angular Reading List</h1>
+
+<div class="row" ng-controller="ReadingListCotroller as readingListCtrl">
+
+  <buttom class="btn btn-default" ng-click="reviewFormCtrl.showForm = !reviewFormCtrl.showForm">{{reviewFormCtrl.showForm ? "Cancel" : "Click here to add a new review"}}</buttom>
+  <hr/>
+  <review-form books="readingListCtrl.books" genres="readingListCtrl.genres" ng-show="reviewFormCtrl.showForm"></review-form>
+  <hr/>
+
+  <ul class="list-unstyled col-sm-8">
+    <li class="book row" ng-repeat="book in readingListCtrl.books">
+      <book-cover></book-cover>
+      <div class="col-sm-9">
+        <h3><a href="http://images.amazon.com/images/P/{{book.isbn}}.01.ZTZZZZZZ.jpg" alt="Cover of the {{book.title}}" class="full"></a>{{book.title}}</h3>
+
+        <cite>Written by {{book.author}}</cite>
+
+        <p>{{book.review}}</p>
+        <!--put genres code here -->
+        <book-genres genres="book.genres"></book-genres>
+
+      </div>
+    </li>
+  </ul>
+
+
+  </hr/>
+  </hr/>
+
+</div>
